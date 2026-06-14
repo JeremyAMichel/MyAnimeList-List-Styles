@@ -1,0 +1,963 @@
+/*
+ * ═══════════════════════════════════════════════════════════
+ *   PERSONA 3 RELOAD — TARTARUS LIST THEME
+ *   "You must remember the meaning of this moment."
+ *
+ *   MyAnimeList Custom CSS Theme
+ *   Inspired by Persona 3 Reload's UI/UX Design Language
+ *   Palette : Velvet Room Navy · SEES Cyan · Full Moon Gold
+ * ═══════════════════════════════════════════════════════════
+ */
+
+/* ─── FONTS ────────────────────────────────────────────────
+   Rajdhani  → corps du texte (propre, technique, lisible)
+   Orbitron  → titres / labels (futuriste, P3-like)
+   ───────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap");
+
+/* ─── VARIABLES ─────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --p3-bg-root: #020811;
+  --p3-bg-dark: #040d1e;
+  --p3-bg-panel: rgba(4, 12, 28, 0.94);
+  --p3-bg-row-a: rgba(4, 11, 26, 0.92);
+  --p3-bg-row-b: rgba(7, 18, 40, 0.88);
+  --p3-bg-hover: rgba(0, 70, 150, 0.22);
+
+  /* Accent */
+  --p3-cyan: #00d4ff;
+  --p3-cyan-glow: rgba(0, 212, 255, 0.3);
+  --p3-cyan-soft: rgba(0, 212, 255, 0.08);
+  --p3-blue: #1a66dd;
+  --p3-blue2: #3399ff;
+  --p3-gold: #f0c040;
+
+  /* Text */
+  --p3-text: #dceeff;
+  --p3-text-mid: #7aadcc;
+  --p3-text-dim: #3d6080;
+  --p3-text-head: #a0c0d8;
+
+  /* Borders */
+  --p3-border: rgba(18, 55, 100, 0.55);
+  --p3-border-bright: rgba(0, 180, 230, 0.55);
+
+  /* Status palette */
+  --p3-watching: #00d4ff; /* Cyan  - En cours        */
+  --p3-completed: #00cc88; /* Vert  - Terminé         */
+  --p3-onhold: #f0c040; /* Or    - En pause        */
+  --p3-dropped: #ff4466; /* Rouge - Abandonné       */
+  --p3-planned: #9966ff; /* Violet - À regarder     */
+}
+
+/* ─── RESET ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+a {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  min-width: 100%;
+  width: 100%;
+}
+
+/* ─── BODY / FOND ───────────────────────────────────────── */
+body {
+  background-color: var(--p3-bg-root) !important;
+  background-image:
+    /* Aura bleue haute */
+    radial-gradient(
+      ellipse 80% 40% at 50% -5%,
+      rgba(10, 40, 120, 0.35) 0%,
+      transparent 70%
+    ),
+    /* Aura bleue droite */
+    radial-gradient(
+        ellipse 50% 60% at 90% 40%,
+        rgba(0, 30, 90, 0.18) 0%,
+        transparent 60%
+      ),
+    /* Dégradé principal */
+    linear-gradient(180deg, #020811 0%, #040e20 40%, #030b18 100%) !important;
+  color: var(--p3-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Ciel étoilé (champ d'étoiles CSS) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      1px 1px at 8% 12%,
+      rgba(255, 255, 255, 0.75) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 22% 44%,
+      rgba(255, 255, 255, 0.55) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 38% 7%,
+      rgba(220, 240, 255, 0.65) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 55% 68%,
+      rgba(255, 255, 255, 0.5) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 72% 29%,
+      rgba(200, 230, 255, 0.6) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 88% 55%,
+      rgba(255, 255, 255, 0.7) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 14% 82%,
+      rgba(255, 255, 255, 0.45) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 47% 91%,
+      rgba(220, 240, 255, 0.4) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 63% 18%,
+      rgba(255, 255, 255, 0.65) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 31% 60%,
+      rgba(200, 230, 255, 0.5) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 78% 87%,
+      rgba(100, 200, 255, 0.35) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 5% 38%,
+      rgba(100, 180, 255, 0.3) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 95% 15%,
+      rgba(180, 220, 255, 0.35) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      3px 3px at 42% 35%,
+      rgba(80, 180, 255, 0.2) 0%,
+      transparent 100%
+    );
+  background-size:
+    600px 500px,
+    500px 700px,
+    800px 600px,
+    400px 650px,
+    700px 550px,
+    450px 800px,
+    600px 400px,
+    750px 700px,
+    500px 450px,
+    650px 550px,
+    900px 800px,
+    700px 600px,
+    550px 750px,
+    1000px 900px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Lignes de scan — texture subtile */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.035) 3px,
+    rgba(0, 0, 0, 0.035) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── HEADER ────────────────────────────────────────────── */
+.header {
+  background: linear-gradient(
+    180deg,
+    #010408 0%,
+    #060e22 30%,
+    #091830 55%,
+    #060e22 80%,
+    #010408 100%
+  ) !important;
+  border-bottom: 1px solid var(--p3-border-bright);
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.12),
+    0 6px 40px rgba(0, 20, 70, 0.9);
+  height: 170px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Lune pleine — cercle décoratif en haut à droite */
+.header::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: 6%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 50, 130, 0.22) 0%,
+    rgba(0, 20, 70, 0.14) 45%,
+    transparent 75%
+  );
+  border: 1px solid rgba(0, 200, 255, 0.14);
+  box-shadow:
+    0 0 50px rgba(0, 140, 220, 0.1),
+    inset 0 0 35px rgba(0, 60, 140, 0.08);
+}
+
+/* Ligne lumineuse en bas du header */
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 212, 255, 0.25) 10%,
+    var(--p3-cyan) 30%,
+    rgba(255, 255, 255, 0.9) 50%,
+    var(--p3-cyan) 70%,
+    rgba(0, 212, 255, 0.25) 90%,
+    transparent 100%
+  );
+}
+
+.header .header-menu {
+  display: none;
+}
+
+.header .header-title {
+  background: transparent;
+  height: auto;
+  left: auto;
+  pointer-events: auto;
+  position: relative;
+  top: auto;
+  width: auto;
+  z-index: 5;
+}
+
+/* ─── NAVIGATION LATÉRALE (list-menu-float) ─────────────── */
+.list-menu-float {
+  background: transparent;
+  border: 0;
+  height: auto;
+  left: 0;
+  max-width: 52px;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: max-width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: visible !important;
+  width: 220px;
+  z-index: 500;
+}
+
+.list-menu-float:hover,
+.list-menu-float:focus-within {
+  max-width: 220px;
+  visibility: visible;
+  z-index: 500;
+}
+
+/* Suppression des pseudo-éléments natifs P5 */
+.list-menu-float::before,
+.list-menu-float::after,
+#list-container::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Style commun de chaque item de menu */
+.list-menu-float .icon-menu {
+  align-items: center;
+  background: rgba(3, 8, 20, 0.96) !important;
+  border: 0 !important;
+  border-left: 3px solid var(--p3-cyan) !important;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: flex !important;
+  height: 44px !important;
+  left: 0 !important;
+  margin: 0 0 3px 0 !important;
+  overflow: hidden;
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+  width: 220px !important;
+}
+
+.list-menu-float .icon-menu:hover {
+  background: rgba(0, 70, 150, 0.45) !important;
+  border-left-color: var(--p3-cyan) !important;
+  box-shadow:
+    0 0 14px rgba(0, 212, 255, 0.22),
+    1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Icônes SVG */
+.list-menu-float .icon-menu svg {
+  fill: var(--p3-text-mid) !important;
+  flex-shrink: 0;
+  height: 18px;
+  margin: 0 17px !important;
+  transition: fill 0.18s ease;
+  width: 18px;
+  z-index: 1;
+}
+
+.list-menu-float .icon-menu:hover svg {
+  fill: var(--p3-cyan) !important;
+}
+
+/* Labels texte des items */
+.list-menu-float .icon-menu .text {
+  color: var(--p3-text) !important;
+  font-family: "Rajdhani", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  left: 54px !important;
+  letter-spacing: 1.5px !important;
+  line-height: 44px !important;
+  opacity: 0;
+  position: absolute;
+  text-indent: 0 !important;
+  text-transform: uppercase;
+  top: 0 !important;
+  transform: none !important;
+  transition: opacity 0.2s ease 0.05s;
+  white-space: nowrap;
+  width: auto !important;
+}
+
+.list-menu-float:hover .icon-menu .text {
+  opacity: 1;
+}
+
+/* Profil — bordure or */
+.icon-menu.profile {
+  border-left-color: var(--p3-gold) !important;
+  height: 44px !important;
+  left: 0 !important;
+  margin: 0 0 3px 0 !important;
+  transform: none !important;
+  width: 220px !important;
+}
+
+.icon-menu.profile:hover {
+  border-left-color: var(--p3-gold) !important;
+}
+
+.icon-menu.profile::before,
+.icon-menu.profile::after {
+  display: none !important;
+}
+
+/* Quick Add */
+.icon-menu.quick-add {
+  background: rgba(3, 8, 20, 0.96) !important;
+  border-left-color: var(--p3-cyan) !important;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6) !important;
+  height: 44px !important;
+  left: 0 !important;
+  margin: 0 0 3px 0 !important;
+  transform: none !important;
+  width: 220px !important;
+}
+
+.icon-menu.quick-add svg {
+  display: block !important;
+}
+
+.icon-menu.quick-add::before,
+.icon-menu.quick-add::after {
+  display: none !important;
+}
+
+/* Items anime/manga/history/export */
+.list-menu-float .icon-menu:nth-of-type(n + 3) {
+  background: rgba(3, 8, 20, 0.96) !important;
+  border-left: 3px solid var(--p3-blue2) !important;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  height: 44px !important;
+  left: 0 !important;
+  margin: 0 0 3px 0 !important;
+  transform: none !important;
+  width: 220px !important;
+}
+
+.list-menu-float .icon-menu:nth-of-type(n + 3):hover {
+  border-left-color: var(--p3-cyan) !important;
+}
+
+.list-menu-float .icon-menu:nth-of-type(n + 3)::before {
+  display: none !important;
+}
+
+.list-menu-float .icon-menu:nth-of-type(n + 3) .text {
+  left: 54px !important;
+  opacity: 0;
+  text-indent: 0 !important;
+  transform: none !important;
+  width: auto !important;
+}
+
+.list-menu-float:hover .icon-menu:nth-of-type(n + 3) .text {
+  opacity: 1;
+}
+
+/* Formulaire logout */
+.list-menu-float form {
+  background: rgba(3, 8, 20, 0.96) !important;
+  border: 0 !important;
+  border-left: 3px solid #ff4466 !important;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  height: 44px !important;
+  left: 0 !important;
+  margin: 0 0 3px 0 !important;
+  overflow: hidden;
+  top: auto !important;
+  transform: none !important;
+  transition: background 0.18s ease;
+  width: 220px !important;
+}
+
+.icon-menu.logout {
+  background: transparent !important;
+  border: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  text-indent: 0 !important;
+  transform: none !important;
+  width: 220px !important;
+}
+
+.icon-menu.logout .text {
+  color: #ff6688 !important;
+  left: 54px !important;
+  line-height: 44px !important;
+  opacity: 0;
+  position: absolute;
+  top: 0 !important;
+  transform: none !important;
+  transition: opacity 0.2s ease 0.05s;
+}
+
+.list-menu-float:hover .icon-menu.logout .text {
+  opacity: 1;
+}
+
+.icon-menu.logout::before {
+  display: none !important;
+}
+
+.icon-menu.logout svg {
+  transform: none !important;
+}
+
+.icon-menu.setting {
+  display: none !important;
+}
+
+/* ─── BARRE DE STATUT (onglets) ─────────────────────────── */
+#status-menu {
+  background: rgba(2, 7, 16, 0.98) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--p3-border) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.75);
+  padding: 0 !important;
+  position: sticky !important;
+  top: 0;
+  width: 100% !important;
+  z-index: 300;
+}
+
+.status-menu-container {
+  width: 100%;
+}
+
+.status-menu-container .status-menu {
+  display: flex !important;
+  align-items: stretch;
+  left: auto !important;
+  padding: 0 16px 0 76px !important;
+  position: static !important;
+  width: 100% !important;
+}
+
+.status-menu .status-button {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  color: var(--p3-text-dim) !important;
+  cursor: pointer;
+  display: inline-flex !important;
+  align-items: center;
+  font-family: "Rajdhani", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  height: 46px;
+  letter-spacing: 2px !important;
+  line-height: 46px !important;
+  margin: 0 !important;
+  padding: 0 14px !important;
+  position: relative !important;
+  text-transform: uppercase !important;
+  top: auto !important;
+  transform: none !important;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+  white-space: nowrap;
+}
+
+.status-menu .status-button::after {
+  display: none !important;
+}
+
+.status-menu .status-button::before {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.status-menu .status-button:hover {
+  background: var(--p3-cyan-soft) !important;
+  border-bottom-color: var(--p3-cyan) !important;
+  color: var(--p3-text) !important;
+  transform: none !important;
+}
+
+/* Onglet actif selon la query */
+body[data-query*='"status":1'] .status-button.watching,
+body[data-query*='"status":2'] .status-button.completed,
+body[data-query*='"status":3'] .status-button.onhold,
+body[data-query*='"status":4'] .status-button.dropped,
+body[data-query*='"status":6'] .status-button.plantowatch,
+body[data-query*='"status":7'] .status-button.all_anime {
+  border-bottom-color: var(--p3-cyan) !important;
+  color: var(--p3-cyan) !important;
+}
+
+/* Libellés des onglets */
+.status-button.all_anime::before {
+  content: "ALL";
+}
+.status-button.watching::before {
+  content: "WATCHING";
+}
+.status-button.completed::before {
+  content: "COMPLETED";
+}
+.status-button.onhold::before {
+  content: "ON HOLD";
+}
+.status-button.dropped::before {
+  content: "DROPPED";
+}
+.status-button.plantowatch::before,
+.status-button.plantoread::before {
+  content: "PLAN TO WATCH";
+}
+.status-button.reading::before {
+  content: "READING";
+}
+
+.status-menu .search-container {
+  display: none;
+}
+
+/* ─── CONTENEUR PRINCIPAL ───────────────────────────────── */
+#list-container {
+  background: transparent !important;
+  border: 0 !important;
+  margin: 0 !important;
+  min-height: calc(100vh - 220px);
+  padding: 24px 28px 48px 80px !important;
+  position: relative;
+  width: 100% !important;
+  z-index: 1;
+}
+
+#list-container .cover-block {
+  display: none;
+}
+
+/* ─── BLOCS DE STATUT ───────────────────────────────────── */
+.list-block {
+  width: 100%;
+}
+
+.list-block .list-unit {
+  animation: p3FadeUp 0.35s ease both;
+  display: block;
+  left: auto !important;
+  margin: 0 0 36px 0 !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+/* Titre de section (WATCHING / COMPLETED / …) */
+.list-unit .list-status-title {
+  align-items: center;
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 3px solid var(--p3-cyan) !important;
+  border-bottom: 1px solid var(--p3-border) !important;
+  box-shadow: none !important;
+  display: flex;
+  margin: 0 0 2px 0 !important;
+  padding: 10px 16px !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.list-status-title .text {
+  color: var(--p3-text) !important;
+  font-family: "Orbitron", "Rajdhani", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 4px !important;
+  text-shadow: 0 0 18px rgba(0, 212, 255, 0.28);
+  text-transform: uppercase;
+}
+
+.list-status-title .stats {
+  color: var(--p3-text-dim) !important;
+  display: inline !important;
+  font-family: "Rajdhani", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  letter-spacing: 1px !important;
+  margin-left: 14px;
+  opacity: 0.9;
+}
+
+/* Couleurs par statut (vue "All") */
+.list-unit.watching .list-status-title {
+  border-left-color: var(--p3-watching) !important;
+}
+.list-unit.completed .list-status-title {
+  border-left-color: var(--p3-completed) !important;
+}
+.list-unit.onhold .list-status-title {
+  border-left-color: var(--p3-onhold) !important;
+}
+.list-unit.dropped .list-status-title {
+  border-left-color: var(--p3-dropped) !important;
+}
+.list-unit.plantowatch .list-status-title {
+  border-left-color: var(--p3-planned) !important;
+}
+
+/* Couleurs par statut (vue dédiée) */
+body[data-query*='"status":1'] .list-status-title {
+  border-left-color: var(--p3-watching) !important;
+}
+body[data-query*='"status":2'] .list-status-title {
+  border-left-color: var(--p3-completed) !important;
+}
+body[data-query*='"status":3'] .list-status-title {
+  border-left-color: var(--p3-onhold) !important;
+}
+body[data-query*='"status":4'] .list-status-title {
+  border-left-color: var(--p3-dropped) !important;
+}
+body[data-query*='"status":6'] .list-status-title {
+  border-left-color: var(--p3-planned) !important;
+}
+
+/* ─── TABLEAU ────────────────────────────────────────────── */
+.list-unit .list-table {
+  border: 0 !important;
+  border-collapse: collapse !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.list-table * {
+  border: 0 !important;
+}
+
+/* En-tête du tableau */
+.list-table tbody:first-of-type {
+  background: transparent !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+.list-table-header {
+  border-bottom: 1px solid var(--p3-border) !important;
+}
+
+.list-table-header .header-title,
+.list-table .list-table-header .header-title .link.sort {
+  background: transparent !important;
+  color: var(--p3-text-dim) !important;
+  font-family: "Rajdhani", sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.8px !important;
+  padding: 7px 6px !important;
+  text-transform: uppercase;
+}
+
+.list-table .list-table-header .header-title .link.sort:hover {
+  color: var(--p3-cyan) !important;
+}
+
+/* ─── LIGNES DU TABLEAU ──────────────────────────────────── */
+.list-table .list-item {
+  background: var(--p3-bg-row-a) !important;
+  border-bottom: 1px solid rgba(12, 32, 65, 0.55) !important;
+  border-left: 2px solid transparent !important;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.list-table .list-item:nth-child(even) {
+  background: var(--p3-bg-row-b) !important;
+}
+
+.list-table .list-item:hover {
+  background: var(--p3-bg-hover) !important;
+  border-left-color: var(--p3-cyan) !important;
+}
+
+/* Watching → hover cyan */
+body[data-query*='"status":1'] .list-item:hover {
+  border-left-color: var(--p3-watching) !important;
+}
+/* Completed → hover vert */
+body[data-query*='"status":2'] .list-item:hover {
+  border-left-color: var(--p3-completed) !important;
+}
+/* On-hold → hover or */
+body[data-query*='"status":3'] .list-item:hover {
+  border-left-color: var(--p3-onhold) !important;
+}
+/* Dropped → hover rouge */
+body[data-query*='"status":4'] .list-item:hover {
+  border-left-color: var(--p3-dropped) !important;
+}
+/* Plan → hover violet */
+body[data-query*='"status":6'] .list-item:hover {
+  border-left-color: var(--p3-planned) !important;
+}
+
+/* ─── COLONNES DE DONNÉES ───────────────────────────────── */
+.list-item * {
+  color: var(--p3-text) !important;
+  font-family: "Rajdhani", sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* Titre de l'animé */
+.data.title {
+  padding-left: 10px !important;
+}
+
+.data.title .link {
+  color: var(--p3-text) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px;
+  transition:
+    color 0.15s ease,
+    text-shadow 0.15s ease;
+}
+
+.data.title .link:hover {
+  color: var(--p3-cyan) !important;
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+}
+
+.data.title .icon-watch,
+.data.title .add-edit-more {
+  display: none;
+}
+
+/* Score — nombre doré style Orbitron */
+.data.score {
+  text-align: center !important;
+}
+
+.data.score .score-label {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--p3-gold) !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  padding: 0 !important;
+  text-shadow: 0 0 10px rgba(240, 192, 64, 0.35);
+}
+
+.data.score .score-label.score-na {
+  color: var(--p3-text-dim) !important;
+  font-family: "Rajdhani", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-shadow: none;
+}
+
+/* Progression (épisodes) */
+.data.progress {
+  color: var(--p3-text-mid) !important;
+  font-size: 13px !important;
+  text-align: center !important;
+}
+
+.data.progress .link,
+.data.progress .progress-button {
+  color: var(--p3-text-mid) !important;
+  font-size: 13px !important;
+}
+
+/* Type (TV / Movie / OVA…) */
+.data.type {
+  color: var(--p3-text-dim) !important;
+  font-size: 12px !important;
+  text-align: center !important;
+}
+
+/* Classement d'âge */
+.data.rated {
+  color: var(--p3-text-dim) !important;
+  font-size: 11px !important;
+  text-align: center !important;
+}
+
+/* Tags personnalisés */
+.data.tags {
+  color: var(--p3-text-dim) !important;
+  font-size: 12px !important;
+}
+
+/* Dates */
+.data.started,
+.data.finished {
+  color: var(--p3-text-dim) !important;
+  font-size: 12px !important;
+  text-align: center !important;
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--p3-bg-root);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 100, 170, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 200, 255, 0.65);
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes p3FadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes p3GlowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  }
+}
+
+/* Animation décalée pour chaque bloc de statut */
+.list-block .list-unit:nth-child(1) {
+  animation-delay: 0s;
+}
+.list-block .list-unit:nth-child(2) {
+  animation-delay: 0.06s;
+}
+.list-block .list-unit:nth-child(3) {
+  animation-delay: 0.12s;
+}
+.list-block .list-unit:nth-child(4) {
+  animation-delay: 0.18s;
+}
+.list-block .list-unit:nth-child(5) {
+  animation-delay: 0.24s;
+}
